@@ -1,0 +1,35 @@
+<script type="text/javascript">
+  RED.nodes.registerType("fitv-generate", {
+    category: "AI",
+    color: "#3FADB5",
+    defaults: {
+      name: { value: "" },
+      model: { value: "minimax-h3" },
+      prompt: { value: "" },
+      image: { value: "" },
+      duration: { value: "6" },
+      resolution: { value: "480p" },
+      aspectRatio: { value: "16:9" },
+      timeout: { value: 1800 },
+    },
+    credentials: { apiKey: { type: "password" } },
+    inputs: 1,
+    outputs: 1,
+    icon: "font-awesome/fa-film",
+    label: function () { return this.name || "Free Image to Video"; },
+  });
+</script>
+
+<script type="text/html" data-template-name="fitv-generate">
+  <div class="form-row"><label for="node-input-name">Name</label><input type="text" id="node-input-name" /></div>
+  <div class="form-row"><label for="node-input-apiKey">API Key</label><input type="password" id="node-input-apiKey" placeholder="sk-... (or FREEIMAGETOVIDEO_API_KEY)" /></div>
+  <div class="form-row"><label for="node-input-prompt">Prompt</label><input type="text" id="node-input-prompt" /></div>
+  <div class="form-row"><label for="node-input-image">Image URL</label><input type="text" id="node-input-image" placeholder="https://..." /></div>
+  <div class="form-row"><label for="node-input-duration">Duration</label><input type="text" id="node-input-duration" /></div>
+  <div class="form-row"><label for="node-input-resolution">Resolution</label><input type="text" id="node-input-resolution" /></div>
+  <div class="form-row"><label for="node-input-aspectRatio">Aspect Ratio</label><input type="text" id="node-input-aspectRatio" /></div>
+</script>
+
+<script type="text/html" data-help-name="fitv-generate">
+  <p>Generate AI videos with sound using <a href="https://freeimagetovideo.ai/?utm_source=nodered&utm_medium=package">Free Image to Video</a>.</p>
+</script>
